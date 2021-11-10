@@ -1,0 +1,31 @@
+@value myLightPurple, myPurple, myYellow, myBlack,myShadow, myWhite from '/src/common/colors.css';
+
+.login {
+  display: flex;
+  flex-direction: column;
+  background: myPurple;
+  justify-content: center;
+  text-align: center;
+  width: 40rem;
+  padding-bottom: 2rem;
+  border-radius: 2.5rem;
+}
+
+.login:hover {
+  box-shadow: 5px 5px 10px myShadow;
+}
+
+.method {
+  font-size: 1.5rem;
+  background: myLightPurple;
+  width: 80%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 2rem;
+  color: myWhite;
+}
+
+.method:hover {
+  background: myYellow;
+  color: myBlack;
+}
