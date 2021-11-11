@@ -5,9 +5,12 @@ import {
   signInWithPhoneNumber
 } from '@firebase/auth';
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router';
 
 const AuthPhone = () => {
   const auth = getAuth();
+  const navigate = useNavigate();
+
   auth.useDeviceLanguage();
   useEffect(() => {
     //reCAPTCHA 자동등록방지 객체
@@ -25,7 +28,6 @@ const AuthPhone = () => {
 
   const refNumber = useRef();
   const refCode = useRef();
-  auth.languageCode = 'ko';
 
   const onSubmitPhoneNumber = event => {
     const appVerifier = window.recaptchaVerifier;
@@ -34,7 +36,8 @@ const AuthPhone = () => {
     signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier) //
       .then(confirmationResult => {
         window.confirmationResult = confirmationResult;
-        alert('인증요청');
+        alert('인증코드 발송');
+        refCode.current.focus();
       })
       .catch(error => alertErrorMessage(error));
   };
@@ -44,10 +47,19 @@ const AuthPhone = () => {
     const authCode = refCode.current.value.replace(/ /g, '');
     window.confirmationResult
       .confirm(authCode)
-      .then(alert('인증완료'))
+      .then(navigate('/main'))
       .catch(error => alertErrorMessage(error));
   };
 
+  const onKeyPress = event => {
+    if (event.key === 'Enter') {
+      if (event.target.name === 'phone number') {
+        onSubmitPhoneNumber(event);
+      } else if (event.target.name === 'verify number') {
+        onSubmitCode(event);
+      }
+    }
+  };
   const alertErrorMessage = error => {
     switch (error.code) {
       case 'auth/invalid-verification-code':
@@ -69,17 +81,19 @@ const AuthPhone = () => {
     }
   };
   return (
-    <div className={styles.auth}>
+    <div className={styles.container}>
       <h1 className={styles.notification}>Please verify your phone number</h1>
-
-      <div className={styles.container}>
+      <div className={styles.input}>
         <input
           className={styles.phoneNumber}
           ref={refNumber}
           type='text'
           name='phone number'
           placeholder='+82 10 0000 0000'
+          autoFocus
+          onKeyPress={onKeyPress}
         />
+
         <button
           id={'sign-in-button'}
           className={styles.button}
@@ -88,13 +102,14 @@ const AuthPhone = () => {
           인증번호 요청
         </button>
       </div>
-      <div className={styles.container}>
+      <div className={styles.input}>
         <input
           className={styles.verifyNumber}
           ref={refCode}
           type='text'
           name='verify number'
           placeholder='verify number'
+          onKeyPress={onKeyPress}
         />
         <button className={styles.button} onClick={onSubmitCode}>
           인증번호 확인
