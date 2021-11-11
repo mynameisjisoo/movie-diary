@@ -36,7 +36,7 @@ const AuthPhone = () => {
     signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier) //
       .then(confirmationResult => {
         window.confirmationResult = confirmationResult;
-        alert('인증코드 발송');
+        // alert('인증코드 발송');
         refCode.current.focus();
       })
       .catch(error => alertErrorMessage(error));
@@ -49,7 +49,7 @@ const AuthPhone = () => {
       .confirm(authCode)
       .then(result => {
         console.log(result);
-        navigate('/main', { state: result.user.uid });
+        navigate('/main', { state: { user: result.user.uid } });
       })
       .catch(error => alertErrorMessage(error));
   };
