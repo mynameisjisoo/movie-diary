@@ -1,21 +1,28 @@
-@value makerGreen, makerYellow from '/src/common/colors.css';
+@value myPurple, myShadow, myLightPurple, myWhite, myYellow, myBlack from '/src/common/colors.css';
 
-.auth {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin: 2rem 0;
+  background: myPurple;
+  width: 40rem;
+  padding: 2rem 0;
+  border-radius: 2.5rem;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  margin: 0.5rem 0;
+.container:hover {
+  box-shadow: 5px 5px 10px myShadow;
 }
 
 .notification {
   margin-top: 0;
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
 }
 
 .phoneNumber,
@@ -24,7 +31,7 @@
   margin: 0 0.5rem;
   border-radius: 0.5rem;
   outline: 0;
-  border: solid makerGreen;
+  border: none;
   font-size: 1.2rem;
   width: 60%;
 }
@@ -37,8 +44,11 @@
   font-weight: bolder;
   font-size: 1rem;
   cursor: pointer;
+  background: myLightPurple;
+  color: myWhite;
 }
 
 .button:hover {
-  background-color: makerYellow;
+  background-color: myYellow;
+  color: myBlack;
 }

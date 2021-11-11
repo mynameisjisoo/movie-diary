@@ -1,0 +1,11 @@
+@value myShadow from '/src/common/colors.css';
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.component {
+  top: 50%;
+  transform: translateY(50%);
+}

@@ -1,6 +1,7 @@
-@value makerBlack: black;
-@value makerWhite: white;
-@value makerPuple:#7986cb;
-@value makerLightGrey: #e8e7e6;
-@value makerShadow: rgba(217, 217, 217, 1);
-@value makerYellow: #fff59d;
+@value myBlack: black;
+@value myWhite: white;
+@value myPurple: #7986cb;
+@value myLightPurple: #c5cae9;
+@value myLightGrey: #e8e7e6;
+@value myShadow: rgba(217, 217, 217, 1);
+@value myYellow: #fff59d;
