@@ -47,7 +47,10 @@ const AuthPhone = () => {
     const authCode = refCode.current.value.replace(/ /g, '');
     window.confirmationResult
       .confirm(authCode)
-      .then(navigate('/main'))
+      .then(result => {
+        console.log(result);
+        navigate('/main', { state: result.user.uid });
+      })
       .catch(error => alertErrorMessage(error));
   };
 

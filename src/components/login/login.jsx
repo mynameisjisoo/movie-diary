@@ -2,20 +2,22 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import styles from './login.module.css';
 
-const Login = ({ oauth, PhoneAuth }) => {
+const Login = ({ oauth }) => {
   const navigate = useNavigate();
+
   const onClick = event => {
     const method = event.target.innerText.trim();
     if (method === 'Phone') {
-      goToAuthPhone();
+      authByPhone();
     } else {
       oauth.login(method);
     }
   };
-  const goToAuthPhone = () => {
-    console.log('oauth - loginphone');
+
+  const authByPhone = () => {
     navigate('/auth-Phone');
   };
+
   return (
     <div className={styles.login}>
       <h1 className={styles.text}>Select a login method</h1>
