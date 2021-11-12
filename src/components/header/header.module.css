@@ -1,9 +1,7 @@
-@value myLightPurple, myPurple from '/src/common/colors.css';
+@value myLightPurple, myPurple, myWhite , myYellow from '/src/common/colors.css';
 
 button {
   outline: 0;
-  border: 0;
-  background: transparent;
   cursor: pointer;
 }
 
@@ -13,12 +11,15 @@ button {
   align-items: center;
   background: myPurple;
   padding: 0.5rem 2rem;
+  width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0;
+  background: transparent;
 }
 
 .logoImg {
@@ -32,25 +33,24 @@ button {
   font-family: 'Lobster', cursive;
 }
 
-.search {
-  display: flex;
-}
-
 .searchInput {
   height: 2rem;
-  width: 20rem;
-  border-radius: 2rem;
-  padding: 0.5rem;
+  width: 30rem;
+  padding: 1rem;
   padding-left: 1rem;
   font-size: 1rem;
-  border: 0;
-  outline: 0;
-}
-
-.searchInput:focus {
+  padding: 1.3rem 1rem;
   outline: 3px solid myLightPurple;
 }
 
-.searchBtn {
-  font-size: 1.5rem;
+.logout {
+  font-size: 1rem;
+  background: myLightPurple;
+  padding: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.logout:hover {
+  background: myYellow;
 }

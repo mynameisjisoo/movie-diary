@@ -1,20 +1,18 @@
 import React, { useRef } from 'react';
 import styles from './header.module.css';
 
-const Header = props => {
+const Header = ({ onLogout, handleSearch }) => {
   const inputRef = useRef();
 
-  const onClick = () => {
-    handleSearch();
-  };
   const onKeyPress = event => {
     if (event.key === 'Enter') {
-      handleSearch();
+      onSearch();
     }
   };
 
-  const handleSearch = () => {
+  const onSearch = () => {
     const keyword = inputRef.current.value;
+    handleSearch(keyword);
     inputRef.current.value = '';
   };
 
@@ -24,19 +22,22 @@ const Header = props => {
         <img className={styles.logoImg} src='/favicon.png' alt='' />
         <div className={styles.logoText}>My movie diary</div>
       </button>
-      <span className={styles.search}>
-        <input
-          ref={inputRef}
-          className={styles.searchInput}
-          type='text'
-          name=''
-          placeholder='영화를 검색해 보세요'
-          onKeyPress={onKeyPress}
-        />
-        <button className={styles.searchBtn} onClick={onClick}>
-          <i className='fas fa-search'></i>
-        </button>
-      </span>
+
+      <input
+        ref={inputRef}
+        className={styles.searchInput}
+        type='text'
+        name=''
+        placeholder='영화를 검색해 보세요'
+        onKeyPress={onKeyPress}
+      />
+
+      {/* {
+        onLogout&& ()
+      } */}
+      <button className={styles.logout} onClick={onLogout}>
+        <i className='fas fa-sign-out-alt'></i> Logout
+      </button>
     </header>
   );
 };
