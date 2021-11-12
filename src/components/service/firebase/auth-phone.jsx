@@ -49,7 +49,7 @@ const AuthPhone = () => {
       .confirm(authCode)
       .then(result => {
         console.log(result);
-        navigate('/main', { state: { user: result.user.uid } });
+        // navigate('/main', { state: { user: result.user.uid } });
       })
       .catch(error => alertErrorMessage(error));
   };
