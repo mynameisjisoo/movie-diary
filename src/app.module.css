@@ -1,5 +1,9 @@
 @value myShadow from '/src/common/colors.css';
 
+* {
+  box-sizing: border-box;
+}
+
 .container {
   display: flex;
   justify-content: center;

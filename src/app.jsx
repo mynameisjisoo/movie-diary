@@ -1,8 +1,8 @@
 import styles from './app.module.css';
-import Header from './components/header/header';
 import Login from './components/login/login';
-import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthPhone from './components/service/firebase/auth-phone';
+import Main from './components/main/main';
 
 function App({ naver, oauth, PhoneAuth }) {
   return (
@@ -16,7 +16,7 @@ function App({ naver, oauth, PhoneAuth }) {
                 <Login oauth={oauth} PhoneAuth={PhoneAuth} />
               </div>
             }
-          ></Route>
+          />
           <Route
             path='/auth-Phone'
             element={
@@ -25,7 +25,7 @@ function App({ naver, oauth, PhoneAuth }) {
               </div>
             }
           ></Route>
-          <Route path='/main' element={<Header />}></Route>
+          <Route path='/main' element={<Main oauth={oauth} naver={naver} />} />
         </Routes>
       </BrowserRouter>
     </div>
