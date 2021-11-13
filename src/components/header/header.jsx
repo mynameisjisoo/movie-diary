@@ -11,9 +11,8 @@ const Header = ({ onLogout, handleSearch }) => {
   };
 
   const onSearch = () => {
-    const keyword = inputRef.current.value;
-    handleSearch(keyword);
-    inputRef.current.value = '';
+    const query = inputRef.current.value;
+    handleSearch(query);
   };
 
   return (
@@ -30,11 +29,9 @@ const Header = ({ onLogout, handleSearch }) => {
         name=''
         placeholder='영화를 검색해 보세요'
         onKeyPress={onKeyPress}
+        autoFocus
       />
 
-      {/* {
-        onLogout&& ()
-      } */}
       <button className={styles.logout} onClick={onLogout}>
         <i className='fas fa-sign-out-alt'></i> Logout
       </button>

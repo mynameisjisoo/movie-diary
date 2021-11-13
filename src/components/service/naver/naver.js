@@ -13,17 +13,14 @@ class Naver {
   }
 
   async search(query) {
-    this.naver
-      .get('v1/search/movie.json', {
-        params: {
-          display: '20',
-          query: query
-        }
-      })
-      .then(response => {
-        console.log(response);
-        return response.data.items;
-      });
+    console.log(`query: ${query}`);
+    const response = await this.naver.get('v1/search/movie.json', {
+      params: {
+        display: '20',
+        query: query
+      }
+    });
+    return response.data.items;
   }
 }
 export default Naver;
