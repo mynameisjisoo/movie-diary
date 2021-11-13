@@ -1,3 +1,5 @@
+@value myPurple,myLightPurple, myYellow from '/src/common/colors.css';
+
 .movie {
   /* width: 30rem; */
   margin: 1rem;
@@ -12,21 +14,27 @@
 .description {
 }
 
-.rateBar {
-  width: 100%;
-  height: 3px;
-  background: black;
-  margin: 1rem 0;
+.starRatings {
+  padding-bottom: 1.5rem;
+  display: flex;
 }
 
-.rateValue {
-  width: 70%;
-  height: 3px;
-  background: cadetblue;
-  margin-bottom: 1rem;
+.ratingBase {
+  position: absolute;
+  width: 90px;
+  color: myLightPurple;
+  overflow: hidden;
+  cursor: default;
 }
 
-.rate {
-  /* background; */
-  margin-bottom: 1rem;
+.ratingFill {
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: default;
+  color: myPurple;
+}
+
+.rating {
+  transform: translateX(5.5rem);
 }

@@ -3,13 +3,9 @@ import styles from './movie.module.css';
 
 const Movie = ({ movie }) => {
   console.log(movie);
-  const ratingToPercent = () => {
-    const score = movie.userRating * 10;
-    return score;
-  };
 
-  const styles = {
-    width: ratingToPercent
+  const style = {
+    width: `${(movie.userRating / 10) * 90}px`
   };
 
   return (
@@ -28,27 +24,23 @@ const Movie = ({ movie }) => {
         </div>
 
         <div className={styles.starRatings}>
-          <div className={styles.ratingFill} style={styles}>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-          </div>
           <div className={styles.ratingBase}>
+            <span>☆</span>
+            <span>☆</span>
+            <span>☆</span>
+            <span>☆</span>
+            <span>☆</span>
+          </div>
+          <div className={styles.ratingFill} style={style}>
             <span>★</span>
             <span>★</span>
             <span>★</span>
             <span>★</span>
             <span>★</span>
           </div>
+          <span className={styles.rating}>{movie.userRating}</span>
         </div>
 
-        {/* <div className={styles.ratingBar}>
-          <div className={styles.ratingValue}>
-            <div className={styles.rating}>{movie.userRating} / 10</div>
-          </div>
-        </div> */}
         <div className={styles.content}>{movie.pubDate}</div>
         <div className={styles.content}>{movie.director}</div>
         <div className={styles.content}>{movie.actor}</div>
