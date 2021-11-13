@@ -1,13 +1,45 @@
-import React from 'react';
-import { useLocation } from 'react-router';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import Header from '../header/header';
+import Movielist from '../movie_list/movie_list';
+import styles from './main.module.css';
 
-const Main = props => {
+const Main = ({ oauth, naver }) => {
+  const [movies, setMovies] = useState([]);
+
+  const navigate = useNavigate();
   const {
-    state: { user }
+    state: { userId }
   } = useLocation();
-  console.log(user);
-  return <Header />;
+
+  const onLogout = useCallback(() => {
+    oauth.logout();
+  });
+
+  useEffect(() => {
+    oauth.onAuthChange(user => {
+      if (user) {
+      } else {
+        navigate('/');
+      }
+    });
+  });
+  //여기 state바뀔때마다 호출되게 해야됨
+  const handleSearch = query => {
+    naver
+      .search(query) //
+      .then(result => {
+        setMovies(result);
+        console.log(movies);
+      });
+  };
+
+  return (
+    <div className={styles.container}>
+      <Header onLogout={onLogout} handleSearch={handleSearch} />
+      <Movielist movies={movies} />
+    </div>
+  );
 };
 
 export default Main;
