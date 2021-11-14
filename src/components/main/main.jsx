@@ -24,13 +24,13 @@ const Main = ({ oauth, naver }) => {
       }
     });
   });
-  //여기 state바뀔때마다 호출되게 해야됨
+
   const handleSearch = query => {
     naver
       .search(query) //
       .then(result => {
         setMovies(result);
-        console.log(movies);
+        console.log(typeof result);
       });
   };
 

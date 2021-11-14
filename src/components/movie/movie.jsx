@@ -2,16 +2,13 @@ import React from 'react';
 import styles from './movie.module.css';
 
 const Movie = ({ movie }) => {
-  console.log(movie);
-  // console.log(movie.typeOf());
-  // console.log(movie.keys());
   const decode = require('unescape');
-  // const [title, subtitle, userRating, image, pubDate,director, actor ]
-  // const tmp = movie.map(item => decode(item));
-  // console.log(tmp);
+
+  const { title, subtitle, userRating, image, pubDate, director, actor } =
+    movie;
 
   const style = {
-    width: `${(movie.userRating / 10) * 90}px`
+    width: `${(userRating / 10) * 90}px`
   };
 
   return (
@@ -19,17 +16,17 @@ const Movie = ({ movie }) => {
       {
         <img
           className={styles.thumbnail}
-          src={movie.image || '/images/no-image.png'}
+          src={image || '/images/no-image.png'}
           alt='thumbnail'
         />
       }
 
       <div className={styles.description}>
         <span className={styles.title}>
-          {movie.title.replace('<b>', '').replace('</b>', '')}
+          {decode(title.replace('<b>', '').replace('</b>', ''))}
         </span>
         <br />
-        {movie.subtitle && `(${movie.subtitle})`}
+        {subtitle && `(${decode(subtitle)})`}
 
         <div className={styles.starRatings}>
           <div className={styles.ratingBase}>
@@ -46,12 +43,12 @@ const Movie = ({ movie }) => {
             <span>★</span>
             <span>★</span>
           </div>
-          <span className={styles.rating}>{movie.userRating}</span>
+          <span className={styles.rating}>{userRating}</span>
         </div>
 
-        <div className={styles.content}>{movie.pubDate}</div>
-        <div className={styles.content}>{movie.director}</div>
-        <div className={styles.content}>{movie.actor}</div>
+        <div className={styles.content}>{pubDate}</div>
+        <div className={styles.content}>{decode(director)}</div>
+        <div className={styles.content}>{decode(actor)}</div>
       </div>
     </li>
   );
