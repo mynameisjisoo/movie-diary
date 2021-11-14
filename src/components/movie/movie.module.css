@@ -12,6 +12,11 @@
 }
 
 .description {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.title {
+  font-size: 1.3rem;
 }
 
 .starRatings {

@@ -3,6 +3,12 @@ import styles from './movie.module.css';
 
 const Movie = ({ movie }) => {
   console.log(movie);
+  // console.log(movie.typeOf());
+  // console.log(movie.keys());
+  const decode = require('unescape');
+  // const [title, subtitle, userRating, image, pubDate,director, actor ]
+  // const tmp = movie.map(item => decode(item));
+  // console.log(tmp);
 
   const style = {
     width: `${(movie.userRating / 10) * 90}px`
@@ -19,9 +25,11 @@ const Movie = ({ movie }) => {
       }
 
       <div className={styles.description}>
-        <div className={styles.title}>
-          {movie.title.replace('<b>', '').replace('</b>', '')}({movie.subtitle})
-        </div>
+        <span className={styles.title}>
+          {movie.title.replace('<b>', '').replace('</b>', '')}
+        </span>
+        <br />
+        {movie.subtitle && `(${movie.subtitle})`}
 
         <div className={styles.starRatings}>
           <div className={styles.ratingBase}>
