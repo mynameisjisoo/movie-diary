@@ -13,7 +13,6 @@ class Naver {
   }
 
   async search(query) {
-    console.log(`query: ${query}`);
     const response = await this.naver.get('v1/search/movie.json', {
       params: {
         display: '20',

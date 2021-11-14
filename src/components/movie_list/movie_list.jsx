@@ -6,7 +6,7 @@ const Movielist = ({ movies }) => {
   return (
     <ul className={styles.movies}>
       {movies.map(movie => (
-        <Movie movie={movie} />
+        <Movie movie={movie} key={movie.link} />
       ))}
     </ul>
   );

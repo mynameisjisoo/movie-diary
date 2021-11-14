@@ -30,7 +30,6 @@ const Main = ({ oauth, naver }) => {
       .search(query) //
       .then(result => {
         setMovies(result);
-        console.log(typeof result);
       });
   };
 
