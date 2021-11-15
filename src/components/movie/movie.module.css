@@ -1,10 +1,18 @@
-@value myPurple,myLightPurple, myYellow from '/src/common/colors.css';
+@value myPurple,myLightPurple, myYellow, myShadow from '/src/common/colors.css';
 
 .movie {
   /* width: 30rem; */
   margin: 1rem;
-  border: olive 2px solid;
   display: flex;
+  transition: all 300ms ease;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px myShadow;
+  padding: 1rem 0;
+}
+
+.movie:hover {
+  background: myLightPurple;
+  transform: scale(1.05);
 }
 
 .thumbnail {

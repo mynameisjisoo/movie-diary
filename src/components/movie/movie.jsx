@@ -1,18 +1,21 @@
 import React from 'react';
 import styles from './movie.module.css';
 
-const Movie = ({ movie }) => {
+const Movie = ({ movie, handleClick }) => {
   const decode = require('unescape');
-
   const { title, subtitle, userRating, image, pubDate, director, actor } =
     movie;
+
+  const onClick = () => {
+    handleClick(movie);
+  };
 
   const style = {
     width: `${(userRating / 10) * 90}px`
   };
 
   return (
-    <li className={styles.movie}>
+    <li className={styles.movie} onClick={onClick}>
       {
         <img
           className={styles.thumbnail}
