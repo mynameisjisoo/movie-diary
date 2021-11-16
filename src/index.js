@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app';
-import '@fortawesome/fontawesome-free/js/all.js';
+// import '@fortawesome/fontawesome-free/js/all.js';
 import Naver from './components/service/naver/naver';
 import { firebaseApp } from './components/service/firebase/firebase';
 import Oauth from './components/service/firebase/oauth';

@@ -46,6 +46,7 @@
   cursor: pointer;
   background: myLightPurple;
   /* color: myWhite; */
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .button:hover {

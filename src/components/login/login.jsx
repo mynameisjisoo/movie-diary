@@ -1,3 +1,10 @@
+import {
+  faGithub,
+  faGoogle,
+  faGooglePay
+} from '@fortawesome/free-brands-svg-icons';
+import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import styles from './login.module.css';
@@ -34,13 +41,16 @@ const Login = ({ oauth }) => {
       <h1 className={styles.text}>Select a login method</h1>
       <div className={styles.methods}>
         <button onClick={onClick} className={styles.method}>
-          <i className='fab fa-google'></i> Google
+          <FontAwesomeIcon icon={faGoogle} className={styles.icon} />
+          Google
         </button>
         <button onClick={onClick} className={styles.method}>
-          <i className='fab fa-github'></i> Github
+          <FontAwesomeIcon icon={faGithub} className={styles.icon} />
+          Github
         </button>
         <button onClick={onClick} className={styles.method}>
-          <i className='fas fa-mobile-alt'></i> Phone
+          <FontAwesomeIcon icon={faMobileAlt} className={styles.icon} />
+          Phone
         </button>
       </div>
     </div>

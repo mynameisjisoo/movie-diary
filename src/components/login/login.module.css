@@ -30,3 +30,8 @@
   background: myYellow;
   color: myBlack;
 }
+
+.icon {
+  margin-right: 0.3rem;
+  font-size: 1.6rem;
+}
