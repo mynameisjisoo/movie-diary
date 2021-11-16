@@ -3,18 +3,17 @@
 .review {
   /* border: orange solid; */
   display: flex;
-  font-family: 'Nanum Gothic', sans-serif;
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
   box-shadow: 5px 5px 10px myLightGrey;
-  background: #fff9c4;
   background: myYellow;
 }
 
 .review:hover {
   box-shadow: 5px 5px 10px myLightPurple;
 }
+
 .thumbnail {
   object-fit: none;
 }

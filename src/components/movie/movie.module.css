@@ -1,35 +1,48 @@
 @value myPurple,myLightPurple, myYellow, myShadow from '/src/common/colors.css';
 
 .movie {
-  /* width: 30rem; */
-  margin: 1rem;
+  width: 100%;
   display: flex;
   transition: all 300ms ease;
-  cursor: pointer;
+  cursor: default;
   box-shadow: 5px 5px 10px myShadow;
   padding: 1rem 0;
+  /* padding: 1rem 0 0 0; */
 }
 
 .movie:hover {
-  background: myLightPurple;
-  transform: scale(1.05);
+  background: cornsilk;
+  transform: scale(1.03);
 }
 
 .thumbnail {
+  object-fit: none;
   margin-right: 0.5rem;
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
 .description {
-  font-family: 'Nanum Gothic', sans-serif;
+  padding: 0.5rem;
 }
 
 .title {
   font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.subTitle {
+  margin-bottom: 0.5rem;
 }
 
 .starRatings {
-  padding-bottom: 1.5rem;
   display: flex;
+  margin: 0.3rem 0;
 }
 
 .ratingBase {
@@ -50,4 +63,25 @@
 
 .rating {
   transform: translateX(5.5rem);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background: myLightPurple;
+  padding: 0.5rem 0.3rem;
+  margin: 0.1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: myYellow;
+}
+
+.detail {
+  text-decoration: none;
+  color: black;
 }

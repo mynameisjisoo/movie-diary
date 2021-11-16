@@ -10,13 +10,10 @@ const Diary = ({ movie }) => {
     setReview(review);
   };
   return (
-    <div>
-      <ul>
-        {/* {movie && <Review movie={movie} />} */}
-        {movie && <ReviewAddForm movie={movie} handleAdd={handleAdd} />}
-        {!movie && <div>아직 리뷰가 없어요</div>}
-        {review && <Review review={review} />}
-      </ul>
+    <div className={styles.wrapper}>
+      {movie && <ReviewAddForm movie={movie} handleAdd={handleAdd} />}
+      {!movie && <div>아직 리뷰가 없어요</div>}
+      {review && <Review review={review} />}
     </div>
   );
 };

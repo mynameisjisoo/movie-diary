@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './movie.module.css';
 
-const Movie = ({ movie, handleClick }) => {
-  const decode = require('unescape');
-  const { title, subtitle, userRating, image, pubDate, director, actor } =
+const Movie = ({ movie, addReviewForm }) => {
+  const { title, subtitle, userRating, image, pubDate, director, actor, link } =
     movie;
 
-  const onClick = () => {
-    handleClick(movie);
+  const decode = require('unescape');
+  const decodeAndReplace = string => {
+    const result = decode(string.replace('<b>', '').replace('</b>', ''));
+    return result;
   };
 
   const style = {
@@ -15,7 +16,7 @@ const Movie = ({ movie, handleClick }) => {
   };
 
   return (
-    <li className={styles.movie} onClick={onClick}>
+    <li className={styles.movie}>
       {
         <img
           className={styles.thumbnail}
@@ -23,36 +24,55 @@ const Movie = ({ movie, handleClick }) => {
           alt='thumbnail'
         />
       }
-
-      <div className={styles.description}>
-        <span className={styles.title}>
-          {decode(title.replace('<b>', '').replace('</b>', ''))}
-        </span>
-        <br />
-        {subtitle && `(${decode(subtitle)})`}
-
-        <div className={styles.starRatings}>
-          <div className={styles.ratingBase}>
-            <span>☆</span>
-            <span>☆</span>
-            <span>☆</span>
-            <span>☆</span>
-            <span>☆</span>
+      <section className={styles.content}>
+        <div className={styles.description}>
+          <div className={styles.title}>{decodeAndReplace(title)}</div>
+          <div className={styles.subTitle}>
+            {subtitle && `${decodeAndReplace(subtitle)}`}
           </div>
-          <div className={styles.ratingFill} style={style}>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
+
+          {pubDate}
+
+          <div className={styles.starRatings}>
+            <div className={styles.ratingBase}>
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+              <span>☆</span>
+            </div>
+            <div className={styles.ratingFill} style={style}>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+            </div>
+            <span className={styles.rating}>평균 {userRating}점</span>
           </div>
-          <span className={styles.rating}>{userRating}</span>
+
+          <div>감독: {decode(director)}</div>
+          <div>배우: {decode(actor)}</div>
         </div>
 
-        <div className={styles.content}>{pubDate}</div>
-        <div className={styles.content}>{decode(director)}</div>
-        <div className={styles.content}>{decode(actor)}</div>
-      </div>
+        <div className={styles.buttons}>
+          <button className={styles.button}>
+            <a className={styles.detail} href={link} target='_blank'>
+              Detail
+            </a>
+          </button>
+          <button
+            className={styles.button}
+            onClick={() => addReviewForm(movie)}
+          >
+            Review
+          </button>
+        </div>
+      </section>
+
+      {/* <section className={styles.contents}>
+
+      </section> */}
     </li>
   );
 };

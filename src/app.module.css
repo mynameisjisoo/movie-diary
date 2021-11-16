@@ -1,7 +1,6 @@
-@value myShadow from '/src/common/colors.css';
-
 * {
   box-sizing: border-box;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 .container {
