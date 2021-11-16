@@ -1,0 +1,114 @@
+@value myPurple,myLightPurple, myYellow, myLightGrey,myDarkGrey, myShadow , myRed from '/src/common/colors.css';
+
+.review {
+  /* border: orange solid; */
+  display: flex;
+  font-family: 'Nanum Gothic', sans-serif;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  box-shadow: 5px 5px 10px myLightGrey;
+  background: #fff9c4;
+  background: myYellow;
+}
+
+.review:hover {
+  box-shadow: 5px 5px 10px myLightPurple;
+}
+.thumbnail {
+  object-fit: none;
+}
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.comment {
+  padding: 0.5rem 1rem;
+}
+
+.iconL {
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: myDarkGrey;
+}
+
+.iconR {
+  margin-left: 0.5rem;
+  margin-bottom: 0.3rem;
+  color: myDarkGrey;
+}
+
+.button {
+  border: 0;
+  color: black;
+  background: transparent;
+  height: 2rem;
+  font-size: 1.2rem;
+  transition: all 300ms ease;
+}
+
+.button:hover {
+  color: myRed;
+  transform: rotate(0.1turn);
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* text-align: center; */
+}
+
+.score {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: myPurple;
+}
+
+.starRatings {
+  /* position: relative; */
+  margin-top: 0.2rem;
+  transform: translateX(44%);
+  /* transform: translateX(-45px); */
+  /* padding: ; */
+  /* padding: 0 40%; */
+  /* padding: 10rem; */
+
+  /* transform: translateX(-10%); */
+  /* transform: translateX(16.5em); */
+  /* transform: translateX(215px); */
+}
+
+.ratingBase {
+  position: absolute;
+  width: 75px;
+  color: myLightGrey;
+  overflow: hidden;
+  cursor: default;
+  white-space: nowrap;
+  /* left: 50%; */
+  /* right: 50%; */
+  /* transform: translateX(-50%); */
+}
+
+.ratingFill {
+  /* right: 50%; */
+  /* left: 50%; */
+  position: absolute;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: default;
+  color: myPurple;
+}

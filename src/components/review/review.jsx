@@ -1,40 +1,48 @@
 import React from 'react';
 import styles from './review.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faQuoteLeft,
+  faQuoteRight,
+  faTrashAlt
+} from '@fortawesome/free-solid-svg-icons';
 
-const Review = ({ movie }) => {
+const Review = ({ review }) => {
   const decode = require('unescape');
-  const { title, subtitle, userRating, image, pubDate, director, actor } =
-    movie;
+  const { title, subtitle, image, comment, rating } = review;
 
   const style = {
-    width: `${(userRating / 10) * 90}px`
+    width: `${(rating / 10) * 75}px`
   };
-
+  const onDelete = () => {};
   return (
-    <ul>
-      <li className={styles.movie}>
-        {
-          <img
-            className={styles.thumbnail}
-            src={image || '/images/no-image.png'}
-            alt='thumbnail'
-          />
-        }
-
-        <div className={styles.description}>
-          <span className={styles.title}>
-            {decode(title.replace('<b>', '').replace('</b>', ''))}
-          </span>
-          <br />
-          {subtitle && `(${decode(subtitle)})`}
-
+    <div className={styles.review}>
+      <img
+        className={styles.thumbnail}
+        src={image || '/images/no-image.png'}
+        alt='thumbnail'
+      />
+      <div className={styles.contents}>
+        <div className={styles.title}>
+          {decode(title.replace('<b>', '').replace('</b>', ''))}
+        </div>
+        <div>
+          <b>{subtitle && ` (${decode(subtitle)})`}</b>
+        </div>
+        <div className={styles.comment}>
+          <FontAwesomeIcon icon={faQuoteLeft} className={styles.iconL} />
+          {comment}
+          <FontAwesomeIcon icon={faQuoteRight} className={styles.iconR} />
+        </div>
+        <div className={styles.rating}>
+          <div>The score I gave is {rating}</div>
           <div className={styles.starRatings}>
             <div className={styles.ratingBase}>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
+              <span>★</span>
             </div>
             <div className={styles.ratingFill} style={style}>
               <span>★</span>
@@ -43,15 +51,14 @@ const Review = ({ movie }) => {
               <span>★</span>
               <span>★</span>
             </div>
-            <span className={styles.rating}>{userRating}</span>
           </div>
-
-          <div className={styles.content}>{pubDate}</div>
-          <div className={styles.content}>{decode(director)}</div>
-          <div className={styles.content}>{decode(actor)}</div>
         </div>
-      </li>
-    </ul>
+      </div>
+
+      <button className={styles.button} onClick={onDelete}>
+        <FontAwesomeIcon icon={faTrashAlt} />
+      </button>
+    </div>
   );
 };
 

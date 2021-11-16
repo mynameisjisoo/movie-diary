@@ -1,11 +1,12 @@
 @value myPurple,myLightPurple, myYellow from '/src/common/colors.css';
 
 .form {
-  margin: 1rem;
-  border: thistle 2px solid;
+  /* border: thistle 2px solid; */
   display: flex;
   transition: all 300ms ease;
-  height: 12rem;
+  /* height: 12rem; */
+  width: 100%;
+  padding: 0.5rem;
 }
 
 .thumbnail {
@@ -16,10 +17,6 @@
 .description,
 .comment {
   font-family: 'Nanum Gothic', sans-serif;
-}
-
-.title {
-  font-size: 1.3rem;
 }
 
 /* .title::after {
@@ -34,4 +31,13 @@
 .comment {
   /* height: 2rem; */
   width: 100%;
+}
+
+.button {
+  /* padding: 0.3rem; */
+  background: myLightPurple;
+}
+
+.button:hover {
+  background: myYellow;
 }
