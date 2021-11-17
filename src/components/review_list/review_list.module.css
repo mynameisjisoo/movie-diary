@@ -1,0 +1,19 @@
+@value myPurple from '/src/common/colors.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 1.5em;
+  color: myPurple;
+}
+
+.reviews {
+  padding: 0;
+  margin: 0;
+}
