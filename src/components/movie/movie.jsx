@@ -15,6 +15,10 @@ const Movie = ({ movie, addReviewForm }) => {
     width: `${(userRating / 10) * 90}px`
   };
 
+  const onReviewClicked = () => {
+    addReviewForm(movie);
+  };
+
   return (
     <li className={styles.movie}>
       {
@@ -61,18 +65,11 @@ const Movie = ({ movie, addReviewForm }) => {
               Detail
             </a>
           </button>
-          <button
-            className={styles.button}
-            onClick={() => addReviewForm(movie)}
-          >
+          <button className={styles.button} onClick={onReviewClicked}>
             Review
           </button>
         </div>
       </section>
-
-      {/* <section className={styles.contents}>
-
-      </section> */}
     </li>
   );
 };

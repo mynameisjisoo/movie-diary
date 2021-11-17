@@ -1,3 +1,5 @@
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import Diary from '../diary/diary';
@@ -37,12 +39,18 @@ const Main = ({ oauth, naver, repository }) => {
 
   const addReviewForm = movie => {
     setSelectedMovie(movie);
-    console.log(selectedMovie);
+    scrollUp();
+  };
+
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <div className={styles.container}>
-      <Header onLogout={onLogout} handleSearch={handleSearch} />
+      <header className={styles.header}>
+        <Header onLogout={onLogout} handleSearch={handleSearch} />
+      </header>
       <div className={styles.main}>
         <div className={styles.movieList}>
           <Movielist movies={movies} addReviewForm={addReviewForm} />
@@ -54,6 +62,9 @@ const Main = ({ oauth, naver, repository }) => {
             userId={userId}
           />
         </div>
+        <button className={styles.arrowBtn} onClick={scrollUp}>
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
       </div>
     </div>
   );

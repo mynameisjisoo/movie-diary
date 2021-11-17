@@ -1,7 +1,15 @@
+@value myPurple,myLightGrey, myYellow from '/src/common/colors.css';
+
 .container {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: lightyellow;
+}
+
+.header {
+  position: sticky;
+  top: 0;
 }
 
 .main {
@@ -13,8 +21,17 @@
 
 .movieList {
   flex-basis: 50%;
+  border-right: 1px solid myLightGrey;
 }
 
 .diary {
   flex-basis: 50%;
+}
+
+.arrowBtn {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  background: myPurple;
 }

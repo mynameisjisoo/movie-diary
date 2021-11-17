@@ -1,6 +1,6 @@
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './review_add_form.module.css';
 
 const ReviewAddForm = ({ movie, createReview }) => {
@@ -9,6 +9,12 @@ const ReviewAddForm = ({ movie, createReview }) => {
     movie;
   const commentRef = useRef();
   const ratingRef = useRef();
+  const formRef = useRef();
+
+  const decodeAndReplace = string => {
+    const result = decode(string.replace('<b>', '').replace('</b>', ''));
+    return result;
+  };
 
   const onCreate = event => {
     event.preventDefault();
@@ -22,10 +28,11 @@ const ReviewAddForm = ({ movie, createReview }) => {
       rating: ratingRef.current.value
     };
     createReview(review);
+    formRef.current.reset();
   };
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} ref={formRef}>
       <img
         className={styles.thumbnail}
         src={image || '/images/no-image.png'}
@@ -34,13 +41,11 @@ const ReviewAddForm = ({ movie, createReview }) => {
 
       <div className={styles.container}>
         <div className={styles.description}>
-          <div className={styles.title}>
-            {decode(title.replace('<b>', '').replace('</b>', ''))}
-            {subtitle && ` (${decode(subtitle)})`}
+          <div className={styles.title}>{decodeAndReplace(title)}</div>
+          <div>
+            <b>{subtitle && `${decodeAndReplace(subtitle)}`}</b>
           </div>
-          <div className={styles.content}>{decode(director)}</div>
         </div>
-
         <div className={styles.review}>
           <textarea
             ref={commentRef}
@@ -50,16 +55,20 @@ const ReviewAddForm = ({ movie, createReview }) => {
             rows='10'
             placeholder='What do you think about this movie?'
           ></textarea>
-          <span> My rating is </span>
-          <input
-            ref={ratingRef}
-            className={styles.rating}
-            type='number'
-            name='rating'
-            placeholder='Rating'
-            min='0'
-            max='10'
-          />
+          <div>
+            <span>
+              <b> My rating is </b>
+            </span>
+            <input
+              ref={ratingRef}
+              className={styles.rating}
+              type='number'
+              name='rating'
+              placeholder='Rating'
+              min='0'
+              max='10'
+            />
+          </div>
           <button className={styles.button} onClick={onCreate}>
             <FontAwesomeIcon icon={faPencilAlt} />
             Create
