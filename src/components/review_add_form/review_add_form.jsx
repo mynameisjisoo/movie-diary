@@ -3,25 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef } from 'react';
 import styles from './review_add_form.module.css';
 
-const ReviewAddForm = ({ movie, handleAdd }) => {
+const ReviewAddForm = ({ movie, createReview }) => {
   const decode = require('unescape');
   const { title, subtitle, userRating, image, pubDate, director, actor } =
     movie;
   const commentRef = useRef();
   const ratingRef = useRef();
 
-  const onAdd = event => {
+  const onCreate = event => {
     event.preventDefault();
-    console.log(commentRef.current.value);
-    console.log(ratingRef.current.value);
-    handleAdd({
+    const review = {
+      id: Date.now(),
       title,
       subtitle,
       image,
       director,
       comment: commentRef.current.value,
       rating: ratingRef.current.value
-    });
+    };
+    createReview(review);
   };
 
   return (
@@ -60,9 +60,9 @@ const ReviewAddForm = ({ movie, handleAdd }) => {
             min='0'
             max='10'
           />
-          <button className={styles.button} onClick={onAdd}>
+          <button className={styles.button} onClick={onCreate}>
             <FontAwesomeIcon icon={faPencilAlt} />
-            Add
+            Create
           </button>
         </div>
       </div>

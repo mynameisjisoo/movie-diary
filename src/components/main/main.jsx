@@ -5,7 +5,7 @@ import Header from '../header/header';
 import Movielist from '../movie_list/movie_list';
 import styles from './main.module.css';
 
-const Main = ({ oauth, naver }) => {
+const Main = ({ oauth, naver, repository }) => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState();
   const navigate = useNavigate();
@@ -48,7 +48,11 @@ const Main = ({ oauth, naver }) => {
           <Movielist movies={movies} addReviewForm={addReviewForm} />
         </div>
         <div className={styles.diary}>
-          <Diary movie={selectedMovie} />
+          <Diary
+            movie={selectedMovie}
+            repository={repository}
+            userId={userId}
+          />
         </div>
       </div>
     </div>
