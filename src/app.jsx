@@ -3,8 +3,9 @@ import Login from './components/login/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthPhone from './components/service/firebase/auth-phone';
 import Main from './components/main/main';
+import { useState } from 'react/cjs/react.development';
 
-function App({ naver, oauth, PhoneAuth }) {
+function App({ naver, oauth, PhoneAuth, repository }) {
   return (
     <div className={styles.container}>
       <BrowserRouter>
@@ -25,7 +26,12 @@ function App({ naver, oauth, PhoneAuth }) {
               </div>
             }
           ></Route>
-          <Route path='/main' element={<Main oauth={oauth} naver={naver} />} />
+          <Route
+            path='/main'
+            element={
+              <Main oauth={oauth} naver={naver} repository={repository} />
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
