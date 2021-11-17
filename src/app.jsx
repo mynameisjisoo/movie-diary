@@ -3,7 +3,6 @@ import Login from './components/login/login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthPhone from './components/service/firebase/auth-phone';
 import Main from './components/main/main';
-import { useState } from 'react/cjs/react.development';
 
 function App({ naver, oauth, PhoneAuth, repository }) {
   return (
@@ -36,7 +35,6 @@ function App({ naver, oauth, PhoneAuth, repository }) {
       </BrowserRouter>
     </div>
   );
-  // return <Header />;
 }
 
 export default App;

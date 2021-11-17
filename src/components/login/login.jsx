@@ -1,8 +1,4 @@
-import {
-  faGithub,
-  faGoogle,
-  faGooglePay
-} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect } from 'react';
@@ -26,7 +22,6 @@ const Login = ({ oauth }) => {
   };
 
   const goToMain = userId => {
-    // navigate('/main', { state: { userId: result.user.uid } });
     navigate('/main', { state: { userId } });
   };
 
@@ -38,8 +33,8 @@ const Login = ({ oauth }) => {
 
   return (
     <div className={styles.login}>
-      <h1 className={styles.text}>Select a login method</h1>
-      <div className={styles.methods}>
+      <h1 className={styles.text}>Select a login method 👇</h1>
+      <div>
         <button onClick={onClick} className={styles.method}>
           <FontAwesomeIcon icon={faGoogle} className={styles.icon} />
           Google

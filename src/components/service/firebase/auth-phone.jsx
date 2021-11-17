@@ -5,11 +5,9 @@ import {
   signInWithPhoneNumber
 } from '@firebase/auth';
 import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router';
 
 const AuthPhone = () => {
   const auth = getAuth();
-  const navigate = useNavigate();
 
   auth.useDeviceLanguage();
   useEffect(() => {
@@ -47,10 +45,7 @@ const AuthPhone = () => {
     const authCode = refCode.current.value.replace(/ /g, '');
     window.confirmationResult
       .confirm(authCode)
-      .then(result => {
-        console.log(result);
-        // navigate('/main', { state: { user: result.user.uid } });
-      })
+      .then(result => {})
       .catch(error => alertErrorMessage(error));
   };
 
@@ -85,7 +80,7 @@ const AuthPhone = () => {
   };
   return (
     <div className={styles.container}>
-      <h1 className={styles.notification}>Please verify your phone number</h1>
+      <h1 className={styles.text}>Please verify your phone number</h1>
       <div className={styles.input}>
         <input
           className={styles.phoneNumber}

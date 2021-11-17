@@ -8,11 +8,14 @@
   text-align: center;
   width: 40rem;
   padding-bottom: 2rem;
-  /* border-radius: 2.5rem; */
 }
 
 .login:hover {
   box-shadow: 5px 5px 10px myShadow;
+}
+
+.text {
+  color: myWhite;
 }
 
 .method {
@@ -21,7 +24,6 @@
   width: 80%;
   padding: 1rem;
   margin: 0.5rem 0;
-  /* border-radius: 2rem; */
   color: myWhite;
   font-weight: bold;
 }

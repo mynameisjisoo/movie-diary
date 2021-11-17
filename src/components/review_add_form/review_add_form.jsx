@@ -1,12 +1,11 @@
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import styles from './review_add_form.module.css';
 
 const ReviewAddForm = ({ movie, createReview }) => {
   const decode = require('unescape');
-  const { title, subtitle, userRating, image, pubDate, director, actor } =
-    movie;
+  const { title, subtitle, image, director } = movie;
   const commentRef = useRef();
   const ratingRef = useRef();
   const formRef = useRef();

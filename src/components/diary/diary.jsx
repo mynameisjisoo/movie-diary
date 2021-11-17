@@ -8,7 +8,6 @@ const Diary = ({ movie, repository, userId }) => {
   const [reviews, setReviews] = useState();
 
   useEffect(() => {
-    console.log(reviews);
     if (!userId) {
       return;
     }

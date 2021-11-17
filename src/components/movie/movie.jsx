@@ -61,7 +61,12 @@ const Movie = ({ movie, addReviewForm }) => {
 
         <div className={styles.buttons}>
           <button className={styles.button}>
-            <a className={styles.detail} href={link} target='_blank'>
+            <a
+              className={styles.detail}
+              href={link}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               Detail
             </a>
           </button>

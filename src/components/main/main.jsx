@@ -18,7 +18,7 @@ const Main = ({ oauth, naver, repository }) => {
 
   const onLogout = useCallback(() => {
     oauth.logout();
-  });
+  }, [oauth]);
 
   useEffect(() => {
     oauth.onAuthChange(user => {
