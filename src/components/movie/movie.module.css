@@ -88,8 +88,3 @@
   text-decoration: none;
   color: black;
 }
-
-@media screen and (max-width: mediaQuery) {
-  .movie {
-  }
-}

@@ -64,9 +64,9 @@ const Main = ({ oauth, naver, repository }) => {
             userId={userId}
           />
         </div>
-        {/* <button className={styles.arrowBtn} onClick={scrollUp}>
+        <button className={styles.arrowBtn} onClick={scrollUp}>
           <FontAwesomeIcon icon={faArrowUp} />
-        </button> */}
+        </button>
       </div>
     </div>
   );

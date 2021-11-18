@@ -1,4 +1,5 @@
 @value myLightPurple, myLightGrey, myDarkGrey, myShadow , myRed, myLightGrey, myCrimson from '/src/common/colors.css';
+@value mediaQuery from '/src/common/size.css';
 
 .review {
   display: flex;
@@ -63,6 +64,7 @@
   display: flex;
   flex-direction: column;
   padding: 1.5rem;
+  text-align: center;
 }
 
 .score {
@@ -73,7 +75,7 @@
 
 .starRatings {
   margin-top: 0.2rem;
-  transform: translateX(44%);
+  transform: translateX(42%);
 }
 
 .ratingBase {
@@ -91,4 +93,10 @@
   white-space: nowrap;
   cursor: default;
   color: myCrimson;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .starRatings {
+    transform: translateX(38%);
+  }
 }
