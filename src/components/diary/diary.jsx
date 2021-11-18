@@ -5,7 +5,7 @@ import ReviewList from '../review_list/review_list';
 import styles from './diary.module.css';
 
 const Diary = ({ movie, repository, userId }) => {
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     if (!userId) {
@@ -34,12 +34,20 @@ const Diary = ({ movie, repository, userId }) => {
     });
     repository.removeReview(userId, review);
   };
-
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.diary}>
+      {!movie && (
+        <h1 className={styles.empty}>영화를 검색하고 리뷰를 남겨보세요🤷‍♀️</h1>
+      )}
       {movie && <ReviewAddForm movie={movie} createReview={createReview} />}
-      {/* {!movie && <div>아직 리뷰가 없어요</div>} */}
-      {reviews && <ReviewList reviews={reviews} deleteReview={deleteReview} />}
+      <div className={styles.reviewArea}>
+        {Object.keys(reviews).length === 0 && (
+          <h1 className={styles.empty}>아직 작성한 리뷰가 없어요🤷‍♀️</h1>
+        )}
+        {Object.keys(reviews).length > 0 && (
+          <ReviewList reviews={reviews} deleteReview={deleteReview} />
+        )}
+      </div>
     </div>
   );
 };
