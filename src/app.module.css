@@ -1,3 +1,5 @@
+@value mediaQuery from '/src/common/size.css';
+
 * {
   box-sizing: border-box;
   font-family: 'Nanum Gothic', sans-serif;
@@ -11,4 +13,15 @@
 .component {
   top: 50%;
   transform: translateY(50%);
+}
+
+@media screen and (max-width: mediaQuery) {
+  .component {
+    /* top: 0;
+    transform: translateY(0);
+    height: 100%; */
+  }
+  .container {
+    width: 100%;
+  }
 }

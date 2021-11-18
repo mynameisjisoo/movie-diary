@@ -1,4 +1,5 @@
 @value myPurple, myShadow, myLightPurple, myWhite, myYellow, myBlack from '/src/common/colors.css';
+@value mediaQuery from '/src/common/size.css';
 
 .container {
   display: flex;
@@ -6,8 +7,8 @@
   justify-content: center;
   text-align: center;
   background: myPurple;
-  width: 40rem;
-  padding: 2rem 0;
+  width: 100%;
+  padding: 2rem;
 }
 
 .container:hover {
@@ -37,15 +38,28 @@
 
 .button {
   outline: 0;
-  padding: 0.8rem;
+  padding: 1rem;
   font-weight: bolder;
   font-size: 1rem;
   cursor: pointer;
   background: myLightPurple;
   font-family: 'Nanum Gothic', sans-serif;
+  flex-wrap: nowrap;
 }
 
 .button:hover {
   background-color: myYellow;
   color: myBlack;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .input {
+    flex-direction: column;
+  }
+  .phoneNumber,
+  .verifyNumber {
+    width: 100%;
+    margin: 0;
+    padding: 1rem 0.5rem;
+  }
 }

@@ -1,4 +1,4 @@
-@value myPurple,myLightPurple, myYellow, myShadow from '/src/common/colors.css';
+@value myPurple, myLightPurple, myYellow, myShadow, myLightGrey, myCrimson from '/src/common/colors.css';
 
 .movie {
   width: 100%;
@@ -7,12 +7,10 @@
   cursor: default;
   box-shadow: 5px 5px 10px myShadow;
   padding: 1rem 0;
-  /* padding: 1rem 0 0 0; */
 }
 
 .movie:hover {
   background: cornsilk;
-  transform: scale(1.03);
 }
 
 .thumbnail {
@@ -40,15 +38,20 @@
   margin-bottom: 0.5rem;
 }
 
-.starRatings {
+.rating {
   display: flex;
+  vertical-align: middle;
   margin: 0.3rem 0;
+}
+
+.starRatings {
+  position: relative;
 }
 
 .ratingBase {
   position: absolute;
   width: 90px;
-  color: myLightPurple;
+  color: myLightGrey;
   overflow: hidden;
   cursor: default;
 }
@@ -58,11 +61,11 @@
   overflow: hidden;
   white-space: nowrap;
   cursor: default;
-  color: myPurple;
+  color: myCrimson;
 }
 
-.rating {
-  transform: translateX(5.5rem);
+.userRating {
+  margin-left: 90px;
 }
 
 .buttons {
@@ -84,4 +87,9 @@
 .detail {
   text-decoration: none;
   color: black;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .movie {
+  }
 }

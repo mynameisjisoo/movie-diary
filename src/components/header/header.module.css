@@ -1,4 +1,5 @@
 @value myLightPurple, myPurple, myWhite , myYellow from '/src/common/colors.css';
+@value mediaQuery from '/src/common/size.css';
 
 button {
   outline: 0;
@@ -35,12 +36,13 @@ button {
 
 .searchInput {
   height: 2rem;
-  width: 30rem;
+  width: 30%;
   padding: 1rem;
   padding-left: 1rem;
   font-size: 1rem;
   padding: 1.3rem 1rem;
   outline: 3px solid myLightPurple;
+  background: white;
 }
 
 .logout {
@@ -53,4 +55,17 @@ button {
 
 .logout:hover {
   background: myYellow;
+}
+
+@media screen and (max-width: mediaQuery) {
+  .header {
+    flex-direction: column;
+  }
+  .searchInput {
+    width: 90%;
+    margin: 0.5rem 0;
+  }
+  .logout {
+    padding: 0.5rem;
+  }
 }

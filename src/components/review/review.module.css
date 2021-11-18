@@ -1,15 +1,13 @@
-@value myPurple,myLightPurple, myYellow, myLightGrey,myDarkGrey, myShadow , myRed from '/src/common/colors.css';
+@value myLightPurple, myLightGrey, myDarkGrey, myShadow , myRed, myLightGrey, myCrimson from '/src/common/colors.css';
 
 .review {
   display: flex;
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
-  box-shadow: 5px 5px 10px myLightGrey;
-}
-
-.review:hover {
-  /* box-shadow: 5px 5px 10px myLightPurple; */
+  transition: all 300ms ease;
+  box-shadow: 5px 5px 10px myLightPurple;
+  overflow-x: hidden;
 }
 
 .thumbnail {
@@ -92,5 +90,5 @@
   overflow: hidden;
   white-space: nowrap;
   cursor: default;
-  color: myPurple;
+  color: myCrimson;
 }

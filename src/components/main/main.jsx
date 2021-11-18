@@ -2,6 +2,7 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
+import { useRef } from 'react/cjs/react.development';
 import Diary from '../diary/diary';
 import Header from '../header/header';
 import Movielist from '../movie_list/movie_list';
@@ -11,7 +12,7 @@ const Main = ({ oauth, naver, repository }) => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState();
   const navigate = useNavigate();
-
+  const diaryRef = useRef();
   const {
     state: { userId }
   } = useLocation();
@@ -44,6 +45,7 @@ const Main = ({ oauth, naver, repository }) => {
 
   const scrollUp = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    // diaryRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
   };
 
   return (
@@ -55,16 +57,16 @@ const Main = ({ oauth, naver, repository }) => {
         <div className={styles.movieList}>
           <Movielist movies={movies} addReviewForm={addReviewForm} />
         </div>
-        <div className={styles.diary}>
+        <div className={styles.diary} ref={diaryRef}>
           <Diary
             movie={selectedMovie}
             repository={repository}
             userId={userId}
           />
         </div>
-        <button className={styles.arrowBtn} onClick={scrollUp}>
+        {/* <button className={styles.arrowBtn} onClick={scrollUp}>
           <FontAwesomeIcon icon={faArrowUp} />
-        </button>
+        </button> */}
       </div>
     </div>
   );

@@ -37,22 +37,24 @@ const Movie = ({ movie, addReviewForm }) => {
 
           {pubDate}
 
-          <div className={styles.starRatings}>
-            <div className={styles.ratingBase}>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
-              <span>☆</span>
+          <div className={styles.rating}>
+            <div className={styles.starRatings}>
+              <div className={styles.ratingBase}>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
+              <div className={styles.ratingFill} style={style}>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+                <span>★</span>
+              </div>
             </div>
-            <div className={styles.ratingFill} style={style}>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-              <span>★</span>
-            </div>
-            <span className={styles.rating}>평균 {userRating}점</span>
+            <span className={styles.userRating}>평균 {userRating}점</span>
           </div>
 
           <div>감독: {decode(director)}</div>
