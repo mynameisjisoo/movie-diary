@@ -35,11 +35,24 @@ const Main = ({ oauth, naver, repository }) => {
       naver
         .search(query) //
         .then(result => {
-          setMovies(result);
+          decodeAndReplace(result);
         });
     },
     [naver]
   );
+
+  const decode = require('unescape');
+  const decodeAndReplace = result => {
+    result.map(item => {
+      Object.keys(item).forEach(element => {
+        return (item[element] = decode(item[element])
+          .replace(/<b>/g, '')
+          .replace(/<\/b>/g, ''));
+      });
+      return item;
+    });
+    setMovies(result);
+  };
 
   const addReviewForm = useCallback(movie => {
     setSelectedMovie(movie);

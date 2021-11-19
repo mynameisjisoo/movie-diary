@@ -2,7 +2,6 @@ import React, { memo, useRef } from 'react';
 import styles from './header.module.css';
 
 const Header = memo(({ onLogout, handleSearch }) => {
-  console.log('header');
   const inputRef = useRef();
 
   const onKeyPress = event => {

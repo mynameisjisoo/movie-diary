@@ -4,7 +4,6 @@ import Movie from '../movie/movie';
 import { memo } from 'react/cjs/react.development';
 
 const Movielist = memo(({ movies, addReviewForm }) => {
-  console.log('movie_list');
   return (
     <ul className={styles.movies}>
       {movies.length === 0 && (

@@ -9,12 +9,6 @@ import {
 
 const Review = memo(({ review, deleteReview }) => {
   const { title, subtitle, image, comment, rating } = review;
-  const decode = require('unescape');
-
-  const decodeAndReplace = string => {
-    const result = decode(string.replace('<b>', '').replace('</b>', ''));
-    return result;
-  };
 
   const style = {
     width: `${(rating / 10) * 75}px`
@@ -31,9 +25,9 @@ const Review = memo(({ review, deleteReview }) => {
         alt='thumbnail'
       />
       <div className={styles.contents}>
-        <div className={styles.title}>{decodeAndReplace(title)}</div>
+        <div className={styles.title}>{title}</div>
         <div>
-          <b>{subtitle && `${decodeAndReplace(subtitle)}`}</b>
+          <b>{subtitle}</b>
         </div>
         <div className={styles.comment}>
           <FontAwesomeIcon icon={faQuoteLeft} className={styles.iconL} />

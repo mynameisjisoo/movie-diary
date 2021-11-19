@@ -3,15 +3,8 @@ import { memo } from 'react/cjs/react.development';
 import styles from './movie.module.css';
 
 const Movie = memo(({ movie, addReviewForm }) => {
-  console.log('movie');
   const { title, subtitle, userRating, image, pubDate, director, actor, link } =
     movie;
-
-  const decode = require('unescape');
-  const decodeAndReplace = string => {
-    const result = decode(string.replace('<b>', '').replace('</b>', ''));
-    return result;
-  };
 
   const style = {
     width: `${(userRating / 10) * 90}px`
@@ -32,10 +25,8 @@ const Movie = memo(({ movie, addReviewForm }) => {
       }
       <section className={styles.content}>
         <div className={styles.description}>
-          <div className={styles.title}>{decodeAndReplace(title)}</div>
-          <div className={styles.subTitle}>
-            {subtitle && `${decodeAndReplace(subtitle)}`}
-          </div>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.subTitle}>{subtitle}</div>
 
           {pubDate}
 
@@ -59,8 +50,8 @@ const Movie = memo(({ movie, addReviewForm }) => {
             <span className={styles.userRating}>평균 {userRating}점</span>
           </div>
 
-          <div>감독: {decode(director)}</div>
-          <div>배우: {decode(actor)}</div>
+          <div>감독: {director}</div>
+          <div>배우: {actor}</div>
         </div>
 
         <div className={styles.buttons}>

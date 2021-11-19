@@ -4,17 +4,10 @@ import React, { memo, useRef } from 'react';
 import styles from './review_add_form.module.css';
 
 const ReviewAddForm = memo(({ movie, createReview }) => {
-  console.log('reviewAddform');
-  const decode = require('unescape');
   const { title, subtitle, image, director } = movie;
   const commentRef = useRef();
   const ratingRef = useRef();
   const formRef = useRef();
-
-  const decodeAndReplace = string => {
-    const result = decode(string.replace('<b>', '').replace('</b>', ''));
-    return result;
-  };
 
   const onCreate = event => {
     event.preventDefault();
@@ -41,9 +34,9 @@ const ReviewAddForm = memo(({ movie, createReview }) => {
 
       <div className={styles.container}>
         <div className={styles.description}>
-          <div className={styles.title}>{decodeAndReplace(title)}</div>
+          <div className={styles.title}>{title}</div>
           <div>
-            <b>{subtitle && `${decodeAndReplace(subtitle)}`}</b>
+            <b>{subtitle}</b>
           </div>
         </div>
         <div className={styles.review}>
