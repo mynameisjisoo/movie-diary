@@ -1,10 +1,11 @@
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { memo } from 'react';
 import Review from '../review/review';
 import styles from './review_list.module.css';
 
-const ReviewList = ({ reviews, deleteReview }) => {
+const ReviewList = memo(({ reviews, deleteReview }) => {
+  console.log('review_list');
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>
@@ -18,5 +19,5 @@ const ReviewList = ({ reviews, deleteReview }) => {
       </ul>
     </section>
   );
-};
+});
 export default ReviewList;

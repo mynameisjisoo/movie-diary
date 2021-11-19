@@ -1,8 +1,10 @@
 import React from 'react';
 import styles from './movie_list.module.css';
 import Movie from '../movie/movie';
+import { memo } from 'react/cjs/react.development';
 
-const Movielist = ({ movies, addReviewForm }) => {
+const Movielist = memo(({ movies, addReviewForm }) => {
+  console.log('movie_list');
   return (
     <ul className={styles.movies}>
       {movies.length === 0 && (
@@ -14,6 +16,6 @@ const Movielist = ({ movies, addReviewForm }) => {
         ))}
     </ul>
   );
-};
+});
 
 export default Movielist;

@@ -1,9 +1,10 @@
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './review_add_form.module.css';
 
-const ReviewAddForm = ({ movie, createReview }) => {
+const ReviewAddForm = memo(({ movie, createReview }) => {
+  console.log('reviewAddform');
   const decode = require('unescape');
   const { title, subtitle, image, director } = movie;
   const commentRef = useRef();
@@ -76,5 +77,5 @@ const ReviewAddForm = ({ movie, createReview }) => {
       </div>
     </form>
   );
-};
+});
 export default ReviewAddForm;

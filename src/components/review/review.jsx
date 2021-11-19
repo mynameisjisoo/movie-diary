@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './review.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -7,14 +7,16 @@ import {
   faTrashAlt
 } from '@fortawesome/free-solid-svg-icons';
 
-const Review = ({ review, deleteReview }) => {
-  const decode = require('unescape');
+const Review = memo(({ review, deleteReview }) => {
+  console.log('review');
   const { title, subtitle, image, comment, rating } = review;
+  const decode = require('unescape');
 
   const decodeAndReplace = string => {
     const result = decode(string.replace('<b>', '').replace('</b>', ''));
     return result;
   };
+
   const style = {
     width: `${(rating / 10) * 75}px`
   };
@@ -65,6 +67,6 @@ const Review = ({ review, deleteReview }) => {
       </button>
     </div>
   );
-};
+});
 
 export default Review;
