@@ -8,7 +8,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 const Review = memo(({ review, deleteReview }) => {
-  console.log('review');
   const { title, subtitle, image, comment, rating } = review;
   const decode = require('unescape');
 

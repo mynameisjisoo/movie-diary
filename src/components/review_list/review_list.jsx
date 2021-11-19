@@ -5,7 +5,6 @@ import Review from '../review/review';
 import styles from './review_list.module.css';
 
 const ReviewList = memo(({ reviews, deleteReview }) => {
-  console.log('review_list');
   return (
     <section className={styles.container}>
       <h1 className={styles.title}>

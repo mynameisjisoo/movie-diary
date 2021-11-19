@@ -9,7 +9,6 @@ import Movielist from '../movie_list/movie_list';
 import styles from './main.module.css';
 
 const Main = ({ oauth, naver, repository }) => {
-  console.log('main');
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState();
   const navigate = useNavigate();
@@ -45,11 +44,10 @@ const Main = ({ oauth, naver, repository }) => {
   const addReviewForm = useCallback(movie => {
     setSelectedMovie(movie);
     scrollUp();
-  });
+  }, []);
 
   const scrollUp = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // diaryRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
   };
 
   return (

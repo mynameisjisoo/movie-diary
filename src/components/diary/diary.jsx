@@ -5,7 +5,6 @@ import ReviewList from '../review_list/review_list';
 import styles from './diary.module.css';
 
 const Diary = memo(({ movie, repository, userId }) => {
-  console.log('diary');
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
