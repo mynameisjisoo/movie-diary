@@ -11,7 +11,7 @@ const AuthPhone = () => {
 
   auth.useDeviceLanguage();
   useEffect(() => {
-    //reCAPTCHA 자동등록방지 객체
+    //reCAPTCHA :자동등록방지 객체
     window.recaptchaVerifier = new RecaptchaVerifier(
       'sign-in-button',
       {
@@ -34,7 +34,7 @@ const AuthPhone = () => {
     signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier) //
       .then(confirmationResult => {
         window.confirmationResult = confirmationResult;
-        // alert('인증코드 발송');
+        alert('인증코드 발송');
         refCode.current.focus();
       })
       .catch(error => alertErrorMessage(error));
@@ -45,7 +45,6 @@ const AuthPhone = () => {
     const authCode = refCode.current.value.replace(/ /g, '');
     window.confirmationResult
       .confirm(authCode)
-      .then(result => {})
       .catch(error => alertErrorMessage(error));
   };
 

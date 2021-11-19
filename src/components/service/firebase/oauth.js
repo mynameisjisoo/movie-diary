@@ -15,8 +15,7 @@ class Oauth {
 
   login = method => {
     const provider = this.getProvider(method);
-    signInWithPopup(this.firebaseAuth, provider) //
-      .then(result => console.log(result));
+    signInWithPopup(this.firebaseAuth, provider); //
   };
 
   logout = () => {
