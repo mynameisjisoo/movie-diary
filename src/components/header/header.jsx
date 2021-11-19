@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { memo, useRef } from 'react';
 import styles from './header.module.css';
 
-const Header = ({ onLogout, handleSearch }) => {
+const Header = memo(({ onLogout, handleSearch }) => {
+  console.log('header');
   const inputRef = useRef();
 
   const onKeyPress = event => {
@@ -17,10 +18,10 @@ const Header = ({ onLogout, handleSearch }) => {
 
   return (
     <header className={styles.header}>
-      <button className={styles.logo}>
+      <span className={styles.logo}>
         <img className={styles.logoImg} src='/favicon.png' alt='' />
         <div className={styles.logoText}>My movie diary</div>
-      </button>
+      </span>
 
       <input
         ref={inputRef}
@@ -37,6 +38,6 @@ const Header = ({ onLogout, handleSearch }) => {
       </button>
     </header>
   );
-};
+});
 
 export default Header;
