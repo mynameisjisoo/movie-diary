@@ -1,4 +1,5 @@
 import React from 'react';
+import { memo } from 'react/cjs/react.development';
 import styles from './movie.module.css';
 
 const Movie = ({ movie, addReviewForm }) => {
