@@ -2,7 +2,7 @@ import React from 'react';
 import { memo } from 'react/cjs/react.development';
 import styles from './movie.module.css';
 
-const Movie = ({ movie, addReviewForm }) => {
+const Movie = memo(({ movie, addReviewForm }) => {
   const { title, subtitle, userRating, image, pubDate, director, actor, link } =
     movie;
 
@@ -71,5 +71,5 @@ const Movie = ({ movie, addReviewForm }) => {
       </section>
     </li>
   );
-};
+});
 export default Movie;
