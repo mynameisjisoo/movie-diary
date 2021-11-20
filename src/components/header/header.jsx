@@ -1,3 +1,5 @@
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { memo, useRef } from 'react';
 import styles from './header.module.css';
 
@@ -33,7 +35,8 @@ const Header = memo(({ onLogout, handleSearch }) => {
       />
 
       <button className={styles.logout} onClick={onLogout}>
-        <i className='fas fa-sign-out-alt'></i> Logout
+        <FontAwesomeIcon icon={faSignOutAlt} className={styles.logoutIcon} />
+        Logout
       </button>
     </header>
   );

@@ -10,7 +10,7 @@ const Movie = memo(({ movie, addReviewForm }) => {
     width: `${(userRating / 10) * 90}px`
   };
 
-  const onReviewClicked = () => {
+  const onReviewClick = () => {
     addReviewForm(movie);
   };
 
@@ -27,7 +27,6 @@ const Movie = memo(({ movie, addReviewForm }) => {
         <div className={styles.description}>
           <div className={styles.title}>{title}</div>
           <div className={styles.subTitle}>{subtitle}</div>
-
           {pubDate}
 
           <div className={styles.rating}>
@@ -65,7 +64,7 @@ const Movie = memo(({ movie, addReviewForm }) => {
               Detail
             </a>
           </button>
-          <button className={styles.button} onClick={onReviewClicked}>
+          <button className={styles.button} onClick={onReviewClick}>
             Review
           </button>
         </div>

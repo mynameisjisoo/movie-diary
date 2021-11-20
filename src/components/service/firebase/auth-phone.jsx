@@ -78,8 +78,8 @@ const AuthPhone = () => {
     }
   };
   return (
-    <div className={styles.container}>
-      <h1 className={styles.text}>Please verify your phone number</h1>
+    <div className={styles.authPhone}>
+      <h1 className={styles.title}>Please verify your phone number</h1>
       <div className={styles.input}>
         <input
           className={styles.phoneNumber}
@@ -109,7 +109,7 @@ const AuthPhone = () => {
           onKeyPress={onKeyPress}
         />
         <button className={styles.button} onClick={onSubmitCode}>
-          인증번호 확인
+          인증번호 입력
         </button>
       </div>
     </div>

@@ -1,23 +1,23 @@
-@value myPurple, myShadow, myLightPurple, myWhite, myYellow, myBlack from '/src/common/colors.css';
+@value myPurple, myShadow, myLightPurple, myYellow from '/src/common/colors.css';
 @value mediaQuery from '/src/common/size.css';
 
-.container {
+.authPhone {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   background: myPurple;
   width: 100%;
-  padding: 2rem;
+  padding: 2.5rem;
 }
 
-.container:hover {
+.authPhone:hover {
   box-shadow: 5px 5px 10px myShadow;
 }
 
-.text {
+.title {
   margin-top: 0;
-  color: myWhite;
+  font-family: 'Lobster', cursive;
 }
 
 .input {
@@ -49,10 +49,12 @@
 
 .button:hover {
   background-color: myYellow;
-  color: myBlack;
 }
 
 @media screen and (max-width: mediaQuery) {
+  .authPhone {
+    height: 100vh;
+  }
   .input {
     flex-direction: column;
   }

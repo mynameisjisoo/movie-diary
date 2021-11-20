@@ -33,7 +33,10 @@ const Login = ({ oauth }) => {
 
   return (
     <div className={styles.login}>
-      <h1 className={styles.text}>Select a login method 👇</h1>
+      <div className={styles.logo}>
+        <img className={styles.logoImg} src='/favicon.png' alt='' />
+        <span className={styles.logoText}>My movie diary</span>
+      </div>
       <div>
         <button onClick={onClick} className={styles.method}>
           <FontAwesomeIcon icon={faGoogle} className={styles.icon} />

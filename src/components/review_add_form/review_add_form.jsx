@@ -61,11 +61,11 @@ const ReviewAddForm = memo(({ movie, createReview }) => {
               min='0'
               max='10'
             />
+            <button className={styles.button} onClick={onCreate}>
+              <FontAwesomeIcon icon={faPencilAlt} />
+              Create
+            </button>
           </div>
-          <button className={styles.button} onClick={onCreate}>
-            <FontAwesomeIcon icon={faPencilAlt} />
-            Create
-          </button>
         </div>
       </div>
     </form>

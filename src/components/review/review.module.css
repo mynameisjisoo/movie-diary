@@ -11,6 +11,10 @@
   overflow-x: hidden;
 }
 
+.review:hover {
+  background: lemonchiffon;
+}
+
 .thumbnail {
   object-fit: none;
 }
