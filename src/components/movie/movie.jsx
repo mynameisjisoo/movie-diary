@@ -1,5 +1,4 @@
-import React from 'react';
-import { memo } from 'react/cjs/react.development';
+import React, { memo } from 'react';
 import styles from './movie.module.css';
 
 const Movie = memo(({ movie, addReviewForm }) => {
