@@ -1,5 +1,4 @@
-import React, { memo, useEffect } from 'react';
-import { useCallback, useState } from 'react/cjs/react.development';
+import React, { memo, useCallback, useEffect, useState } from 'react';
 import ReviewAddForm from '../review_add_form/review_add_form';
 import ReviewList from '../review_list/review_list';
 import styles from './diary.module.css';
