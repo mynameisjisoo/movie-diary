@@ -1,8 +1,7 @@
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import { useRef } from 'react/cjs/react.development';
 import Diary from '../diary/diary';
 import Header from '../header/header';
 import Movielist from '../movie_list/movie_list';

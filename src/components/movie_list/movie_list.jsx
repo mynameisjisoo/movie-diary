@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './movie_list.module.css';
 import Movie from '../movie/movie';
-import { memo } from 'react/cjs/react.development';
 
 const Movielist = memo(({ movies, addReviewForm }) => {
   return (
