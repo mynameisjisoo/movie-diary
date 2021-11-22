@@ -3,8 +3,3 @@
   to = "https://openapi.naver.com/:splat"
   status = 200
   force = true
-
-[[headers]]
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"

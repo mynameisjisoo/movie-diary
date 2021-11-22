@@ -10,17 +10,18 @@ class Naver {
         'X-Naver-Client-Secret': this.secret
       }
     });
-    this.PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    this.URL = `${this.PROXY}/v1/search/movie.json`;
   }
 
   async search(query) {
-    const response = await this.naver.get(this.URL, {
-      params: {
-        display: '20',
-        query: query
+    const response = await this.naver.get(
+      'https://openapi.naver.com/v1/search/movie.json',
+      {
+        params: {
+          display: '20',
+          query: query
+        }
       }
-    });
+    );
     return response.data.items;
   }
 }
