@@ -8,8 +8,7 @@ class Naver {
       headers: {
         'X-Naver-Client-Id': this.id,
         'X-Naver-Client-Secret': this.secret
-      },
-      baseURL: 'https://movie-diary.netlify.app/'
+      }
     });
   }
 
