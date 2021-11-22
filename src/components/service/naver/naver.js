@@ -14,7 +14,7 @@ class Naver {
 
   async search(query) {
     const response = await this.naver.get(
-      'https://cors.bridged.cc/https://openapi.naver.com/v1/search/movie.json',
+      'https://jisoo-proxy-server.herokuapp.com/https://openapi.naver.com/v1/search/movie.json',
       {
         params: {
           display: '20',
