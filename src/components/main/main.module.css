@@ -34,6 +34,33 @@
   display: none;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.loading {
+  width: 10em;
+  height: 10em;
+  border-radius: 50%;
+  border: 15px solid myLightGrey;
+  border-top: 15px solid myPurple;
+  animation: spin 2s linear infinite; /*2초동안 linear하게 spin하는걸 infinite하게 반복*/
+}
+
+@keyframes spin {
+  0% /*시작지점*/ {
+    transform: rotate(0deg);
+  }
+
+  100% /*끝지점*/ {
+    transform: rotate(360deg);
+  }
+}
+
 @media screen and (max-width: mediaQuery) {
   .container {
     width: 100%;

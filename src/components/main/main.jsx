@@ -12,6 +12,7 @@ const Main = ({ oauth, naver, repository }) => {
   const [selectedMovie, setSelectedMovie] = useState();
   const navigate = useNavigate();
   const diaryRef = useRef();
+  const [loading, setLoading] = useState(false);
 
   const {
     state: { userId }
@@ -31,10 +32,12 @@ const Main = ({ oauth, naver, repository }) => {
 
   const handleSearch = useCallback(
     query => {
+      setLoading(true);
       naver
         .search(query) //
         .then(result => {
           decodeAndReplace(result);
+          setLoading(false);
         });
     },
     [naver]
@@ -69,7 +72,14 @@ const Main = ({ oauth, naver, repository }) => {
       </header>
       <div className={styles.main}>
         <div className={styles.movieList}>
-          <Movielist movies={movies} addReviewForm={addReviewForm} />
+          {loading && (
+            <div className={styles.wrapper}>
+              <div className={styles.loading}></div>
+            </div>
+          )}
+          {!loading && (
+            <Movielist movies={movies} addReviewForm={addReviewForm} />
+          )}
         </div>
         <div className={styles.diary} ref={diaryRef}>
           <Diary
