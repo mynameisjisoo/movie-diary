@@ -31,6 +31,7 @@ const Header = memo(({ onLogout, handleSearch }) => {
         name=''
         placeholder='영화를 검색해 보세요'
         onKeyPress={onKeyPress}
+        spellCheck={false}
         autoFocus
       />
 
