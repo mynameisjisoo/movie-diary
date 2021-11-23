@@ -32,11 +32,11 @@
 <img src=https://user-images.githubusercontent.com/84840032/142977105-bb55e74f-9e62-4fd6-b18d-dffcffae1c2c.png>
 
 <img width="300px" src=https://user-images.githubusercontent.com/84840032/142977939-bb3f89af-69c2-44c2-a35d-073b299c83ae.jpg>
-<img src=https://user-images.githubusercontent.com/84840032/142977820-d8a7b74b-9c9b-4723-9a65-22b9ebd36425.png>
+<img width="70%" src=https://user-images.githubusercontent.com/84840032/142977820-d8a7b74b-9c9b-4723-9a65-22b9ebd36425.png>
 
 ---
 
-<img src=https://user-images.githubusercontent.com/84840032/142977676-bfde8452-c3d1-45e5-b0cd-72dce0377abc.gif>
+<img width="100%" src=https://user-images.githubusercontent.com/84840032/142977676-bfde8452-c3d1-45e5-b0cd-72dce0377abc.gif>
 
 ```
 ✨ 로그인하면 로그아웃 전까지는 페이지를 벗어나도 로그인이 유지됨
@@ -46,8 +46,8 @@
 <img width="70%" src=https://user-images.githubusercontent.com/84840032/143025219-7414ca93-1d40-4509-b614-45b8e8ac5c67.png>
 
 ```
-✨ user의 데이터가 firebase realtime database에 저장되어
-   로그아웃 후 재로그인하면 데이터를 자동으로 불러옴
+✨ uuid로 user를 구분하고 firebase realtime database에 user가 작성한 데이터를 저장함
+   로그아웃 후 재로그인하면 firebase에 저장된 user의 데이터를 자동으로 불러옴
 ```
 
 #### 🔍Search a movie and ✍ Write a review
@@ -55,8 +55,8 @@
 <img src=https://user-images.githubusercontent.com/84840032/142978086-bd23aab6-930d-4853-b477-fe79fbcaf83f.gif>
 
 ```
-✨ Header의 검색창을 이용하여 영화를 검색하면 Naver 검색 API를 통해
-영화 검색 결과(영화 정보, 평점 등)을 보여줌
+✨ Header의 검색창을 이용하여 영화를 검색하면 Naver 검색 API를 이용해서
+    영화 검색 결과(영화 정보, 이미지, 평점 등)을 보여줌
 ✨ 검색 결과의 Detail을 클릭하면 naver의 영화 정보 상세 페이지로 링크가 연결됨
 ✨ review를 클릭하면 리뷰를 작성 할 수 있는 form이 생김 (Review_add_form)
 ✨ review_add_form의 내용과 평점을 입력한 후 create를 누르면 리뷰가 작성됨
