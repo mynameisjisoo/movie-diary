@@ -1,6 +1,8 @@
 # My Movie Diary
 
-## React를 이용한 영화 검색 및 영화 리뷰 저장 사이트
+## React를 이용한 영화 검색 및 리뷰 기록 사이트 My Movie Diary📓
+
+### 내가 본 영화를 검색하고 나만의 감상평과 평점을 기록해보세요! (로그인 후 이용가능)
 
 ### [✨ Demo Link ✨](https://movie-diary.netlify.app/)
 
@@ -78,7 +80,6 @@
 🌱 Firebase realtime database를 이용한 유저 데이터 저장
 🌱 Netlify와 Github 연동을 통한 Continuous Deployment
 🌱 CORS의 개념과 해결 방법
-
 ```
 
 ### 아쉬운 점
